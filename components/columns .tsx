@@ -7,6 +7,7 @@ import { labels, priorities, confidence } from "../data/data"
 import { Task } from "../data/schema"
 import { DataTableColumnHeader } from "./data-table-column-header"
 import { DataTableRowActions } from "./data-table-row-actions"
+import {ToolTipButton} from "./tool-tip-button"
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -18,11 +19,14 @@ export const columns: ColumnDef<Task>[] = [
       const label = labels.find((label) => label.value === row.original.label)
 
       return (
-        <div className="flex space-x-2 ml-2">
-          {label && <Badge variant="outline">{label.label}</Badge>}
-          <span className="max-w-[500px] truncate font-medium">
+        <div className="flex space-x-2 ml-2 group/item">
+          {label && <Badge className="h-5 self-center" variant="outline">{label.label}</Badge>}
+          <span className="max-w-[500px] truncate font-medium self-center">
             {row.getValue("title")}
           </span>
+          <div className="group/edit invisible group-hover/item:visible">
+            <ToolTipButton buttonText="OPEN" tooltipText="Open in side peek" />
+          </div>
         </div>
       )
     },
