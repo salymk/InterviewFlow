@@ -11,44 +11,57 @@ import {
 
 export const labels = [
   {
-    value: "bug",
-    label: "Bug",
+    value: "html",
+    label: "HTML",
   },
   {
-    value: "feature",
-    label: "Feature",
+    value: "css",
+    label: "CSS",
   },
   {
-    value: "documentation",
-    label: "Documentation",
+    value: "js",
+    label: "JS",
   },
+  {
+    value: "dom manipulation",
+    label: "DOM Manipulation",
+  },
+  {
+    value: "react components",
+    label: "React Components",
+  },
+  {
+    value: "react hooks",
+    label: "React Hooks",
+  },
+  
 ]
 
 export const statuses = [
   {
-    value: "backlog",
-    label: "Backlog",
-    icon: QuestionMarkCircledIcon,
+    value: "none",
+    label: "None",
+    icon: "🚫",
   },
   {
-    value: "todo",
-    label: "Todo",
-    icon: CircleIcon,
+    value: "forgot",
+    label: "Forgot",
+    icon: "❌",
   },
   {
-    value: "in progress",
-    label: "In Progress",
-    icon: StopwatchIcon,
+    value: "partially recalled",
+    label: "Partially Recalled",
+    icon: "😬",
   },
   {
-    value: "done",
-    label: "Done",
-    icon: CheckCircledIcon,
+    value: "recalled with effort",
+    label: "Recalled With Effort",
+    icon: "😃",
   },
   {
-    value: "canceled",
-    label: "Canceled",
-    icon: CrossCircledIcon,
+    value: "easily recalled",
+    label: "Easily Recalled",
+    icon: "👑",
   },
 ]
 
