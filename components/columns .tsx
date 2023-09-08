@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 
 import { Badge } from "./ui/badge"
-import { labels, priorities, statuses } from "../data/data"
+import { labels, priorities, confidence } from "../data/data"
 import { Task } from "../data/schema"
 import { DataTableColumnHeader } from "./data-table-column-header"
 import { DataTableRowActions } from "./data-table-row-actions"
@@ -28,25 +28,25 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    accessorKey: "status",
+    accessorKey: "confidence",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
+      <DataTableColumnHeader column={column} title="Confidence" />
     ),
     cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue("status")
+      const con = confidence.find(
+        (con) => con.value === row.getValue("confidence")
       )
 
-      if (!status) {
+      if (!con) {
         return null
       }
 
       return (
         <div className="flex w-[100px] items-center">
           <span className="mr-2 h-4 w-4">
-            {status.icon}
+            {con.icon}
           </span>
-          <span>{status.label}</span>
+          <span>{con.label}</span>
         </div>
       )
     },

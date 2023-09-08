@@ -37,7 +37,7 @@ export const labels = [
   
 ]
 
-export const statuses = [
+export const confidence = [
   {
     value: "none",
     label: "None",

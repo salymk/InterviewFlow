@@ -7,7 +7,7 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { DataTableViewOptions } from "./data-table-view-options"
 
-import { priorities, statuses } from "../data/data"
+import { priorities, confidence } from "../data/data"
 import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 
 interface DataTableToolbarProps<TData> {
@@ -30,11 +30,11 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("status") && (
+        {table.getColumn("confidence") && (
           <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
-            options={statuses}
+            column={table.getColumn("confidence")}
+            title="Confidence"
+            options={confidence}
           />
         )}
         {table.getColumn("priority") && (
