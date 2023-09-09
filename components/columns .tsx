@@ -7,7 +7,7 @@ import { labels, priorities, confidence } from "../data/data"
 import { Task } from "../data/schema"
 import { DataTableColumnHeader } from "./data-table-column-header"
 import { DataTableRowActions } from "./data-table-row-actions"
-import {ToolTipButton} from "./tool-tip-button"
+import { ExerciseDetails } from "./exercise-details"
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -25,7 +25,7 @@ export const columns: ColumnDef<Task>[] = [
             {row.getValue("title")}
           </span>
           <div className="group/edit invisible group-hover/item:visible">
-            <ToolTipButton buttonText="OPEN" tooltipText="Open in side peek" />
+            <ExerciseDetails />
           </div>
         </div>
       )
