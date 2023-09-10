@@ -1,7 +1,6 @@
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { CheckCircledIcon } from "@radix-ui/react-icons";
+
 import {
   Sheet,
   SheetClose,
@@ -31,6 +30,7 @@ import { NextReviewDatePicker } from "./next-review-date-picker";
 import { ReviewLogModal } from "./review-log-modal";
 
 import { labels, confidence, priorities } from "../data/data";
+import ReviewLogConfirmationModal from "./review-log-confirmation-modal";
 
 export function ExerciseDetails() {
   return (
@@ -153,15 +153,10 @@ export function ExerciseDetails() {
               <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
                 {confidence.map((label) => (
                   <li key={label.value} className="flex items-center">
-                    <Button
-                      variant="outline"
-                      className="w-full flex items-center h-12 text-center"
-                    >
-                      <p className="flex items-baseline">
-                        <span className="mr-2 h-4 w-4">{label.icon}</span>
-                        {label.label}
-                      </p>
-                    </Button>
+                    <ReviewLogConfirmationModal
+                      label={label.label}
+                      icon={label.icon}
+                    />
                   </li>
                 ))}
               </ul>
