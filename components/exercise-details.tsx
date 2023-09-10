@@ -28,6 +28,7 @@ import { Separator } from "./ui/separator";
 import ToolTipButton from "./tool-tip-button";
 import { LastReviewDatePicker } from "./last-review-date-picker";
 import { NextReviewDatePicker } from "./next-review-date-picker";
+import { ReviewLogModal } from "./review-log-modal";
 
 import { labels, confidence, priorities } from "../data/data";
 
@@ -38,202 +39,154 @@ export function ExerciseDetails() {
         <ToolTipButton buttonText="OPEN" tooltipText="Open in side peek" />
       </SheetTrigger>
       <SheetContent className="max-w-sm md:max-w-md p-0">
-        <ScrollArea className="h-full max-w-sm md:max-w-md p-6">
-          <SheetHeader>
-            <SheetTitle className="mt-6 pb-4">
-              <Input
-                id="title"
-                value="Corresponding Node"
-                className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
-              />
-            </SheetTitle>
-            <Separator className="my-4" />
-          </SheetHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="label" className="text-right">
-                Label:
-              </Label>
-              <Select defaultValue="js">
-                <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
-                  <SelectValue placeholder="Select a label" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Labels</SelectLabel>
-                    {labels.map((label) => (
-                      <SelectItem key={label.value} value={label.value}>
-                        {label.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+        <ScrollArea className="h-full max-w-sm md:max-w-md p-4">
+          <div className="p-2">
+            <SheetHeader className="p-2">
+              <SheetTitle className="mt-6 pb-4">
+                <Input
+                  id="title"
+                  value="Corresponding Node"
+                  className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
+                />
+              </SheetTitle>
+              <Separator className="my-4" />
+            </SheetHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="label" className="text-right">
+                  Label:
+                </Label>
+                <Select defaultValue="js">
+                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                    <SelectValue placeholder="Select a label" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Labels</SelectLabel>
+                      {labels.map((label) => (
+                        <SelectItem key={label.value} value={label.value}>
+                          {label.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="confidence" className="text-right">
+                  Confidence:
+                </Label>
+                <Select defaultValue="none">
+                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                    <SelectValue placeholder="Select a confidence level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Confidence</SelectLabel>
+                      {confidence.map((label) => (
+                        <SelectItem key={label.value} value={label.value}>
+                          <span className="mr-2 h-4 w-4">{label.icon}</span>
+                          {label.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="priority" className="text-right">
+                  Priority:
+                </Label>
+                <Select defaultValue="low">
+                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                    <SelectValue placeholder="Select priority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Priorities</SelectLabel>
+                      {priorities.map((label) => (
+                        <SelectItem key={label.value} value={label.value}>
+                          <div className="flex items-center">
+                            {label.icon && (
+                              <label.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                            )}
+                            <span>{label.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="lastReview" className="text-right">
+                  Last Review:
+                </Label>
+                <LastReviewDatePicker />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="nextReview" className="text-right">
+                  Next Review:
+                </Label>
+                <NextReviewDatePicker />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="reviewCount" className="text-right">
+                  Review Count:
+                </Label>
+                <Input
+                  id="reviewCount"
+                  type="number"
+                  value="1"
+                  className="col-span-3 border-none shadow-none hover:bg-accent"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="confidence" className="text-right">
-                Confidence:
-              </Label>
-              <Select defaultValue="none">
-                <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
-                  <SelectValue placeholder="Select a confidence level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Confidence</SelectLabel>
-                    {confidence.map((label) => (
-                      <SelectItem key={label.value} value={label.value}>
+
+            <Separator className="my-4" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-center pb-4 ">
+                Rate your confidence
+              </h2>
+              <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+                {confidence.map((label) => (
+                  <li key={label.value} className="flex items-center">
+                    <Button
+                      variant="outline"
+                      className="w-full flex items-center h-12 text-center"
+                    >
+                      <p className="flex items-baseline">
                         <span className="mr-2 h-4 w-4">{label.icon}</span>
                         {label.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+                      </p>
+                    </Button>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="priority" className="text-right">
-                Priority:
-              </Label>
-              <Select defaultValue="low">
-                <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
-                  <SelectValue placeholder="Select priority" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Priorities</SelectLabel>
-                    {priorities.map((label) => (
-                      <SelectItem key={label.value} value={label.value}>
-                        <div className="flex items-center">
-                          {label.icon && (
-                            <label.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-                          )}
-                          <span>{label.label}</span>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+            <Separator className="my-4" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-center pb-4 ">
+                Review Log
+              </h2>
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+                <ReviewLogModal />
+                <ReviewLogModal />
+                <ReviewLogModal />
+                <ReviewLogModal />
+                <ReviewLogModal />
+                <ReviewLogModal />
+              </div>
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="lastReview" className="text-right">
-                Last Review:
-              </Label>
-              <LastReviewDatePicker />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="nextReview" className="text-right">
-                Next Review:
-              </Label>
-              <NextReviewDatePicker />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="reviewCount" className="text-right">
-                Review Count:
-              </Label>
-              <Input
-                id="reviewCount"
-                type="number"
-                value="1"
-                className="col-span-3 border-none shadow-none hover:bg-accent"
-              />
-            </div>
+
+            <SheetFooter>
+              <SheetClose asChild></SheetClose>
+            </SheetFooter>
           </div>
-
-          <Separator className="my-4" />
-
-          <div>
-            <h2 className="text-xl font-semibold text-center pb-4 ">
-              Rate your confidence
-            </h2>
-            <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-              {confidence.map((label) => (
-                <li key={label.value} className="flex items-center">
-                  <Button
-                    variant="outline"
-                    className="w-full flex items-baseline h-10 text-center"
-                  >
-                    <span className="mr-2 h-4 w-4">{label.icon}</span>
-                    {label.label}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <Separator className="my-4" />
-
-          <div>
-            <h2 className="text-xl font-semibold text-center pb-4 ">
-              Review Log
-            </h2>
-            <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-              <li className="p-2 border rounded-md hover:bg-accent">
-                <p className="text-lg font-semibold flex items-center">
-                  <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
-                  review
-                </p>
-                <span className="italic">September 5, 2023</span>
-              </li>
-            </ul>
-          </div>
-
-          <SheetFooter>
-            <SheetClose asChild>
-              {/* <Button type="submit">Save changes</Button> */}
-            </SheetClose>
-          </SheetFooter>
         </ScrollArea>
       </SheetContent>
     </Sheet>
