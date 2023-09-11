@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -14,7 +14,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -23,27 +23,28 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table"
+} from "./ui/table";
 
-import { DataTablePagination } from "../components/data-table-pagination"
-import { DataTableToolbar } from "../components/data-table-toolbar"
+import { DataTablePagination } from "../components/data-table-pagination";
+import { DataTableToolbar } from "../components/data-table-toolbar";
+import { Toaster } from "./ui/toaster";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
+    React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
-  )
-  const [sorting, setSorting] = React.useState<SortingState>([])
+  );
+  const [sorting, setSorting] = React.useState<SortingState>([]);
 
   const table = useReactTable({
     data,
@@ -65,7 +66,7 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
-  })
+  });
 
   return (
     <div className="space-y-4">
@@ -85,7 +86,7 @@ export function DataTable<TData, TValue>({
                             header.getContext()
                           )}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
@@ -121,6 +122,7 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       <DataTablePagination table={table} />
+      <Toaster />
     </div>
-  )
+  );
 }
