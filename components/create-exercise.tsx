@@ -34,7 +34,7 @@ import { ReviewLogModal } from "./review-log-modal";
 
 import { labels, confidence, priorities } from "../data/data";
 import ReviewLogConfirmationModal from "./review-log-confirmation-modal";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { CheckCircledIcon, PlusIcon } from "@radix-ui/react-icons";
 
 export function CreateExercise() {
   return (
@@ -49,16 +49,16 @@ export function CreateExercise() {
         <ScrollArea className="h-full max-w-sm md:max-w-md p-4">
           <div className="p-2">
             <SheetHeader className="p-2">
-              <SheetTitle className="mt-6 pb-4">
+              <SheetTitle className="mt-6 pb-2">
                 <Input
                   id="title"
                   placeholder="Exercise title"
                   className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
                 />
               </SheetTitle>
-              <Separator className="my-4" />
+              <Separator className="my-6" />
             </SheetHeader>
-            <div className="grid gap-4 py-4">
+            <div className="grid gap-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="label" className="text-right">
                   Label:
@@ -151,7 +151,7 @@ export function CreateExercise() {
               </div>
             </div>
 
-            <Separator className="my-4" />
+            <Separator className="my-6" />
 
             <div>
               <h2 className="text-xl font-semibold text-center pb-4 ">
@@ -169,16 +169,15 @@ export function CreateExercise() {
               </ul>
             </div>
 
-            <Separator className="my-4" />
+            <Separator className="my-6" />
 
-            {/* <div>
+            <div>
               <h2 className="text-xl font-semibold text-center pb-4 ">
                 Review Log
               </h2>
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-      
-              </div>
-            </div> */}
+              {/* <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4"></div> */}
+              <p className="text-center">No reviews logged.</p>
+            </div>
 
             <SheetFooter>
               <SheetClose asChild></SheetClose>
