@@ -27,8 +27,10 @@ function ReviewLogConfirmationModal(props, forwardRef) {
           variant="outline"
           className="w-full flex items-center h-12 text-center"
         >
-          <p className="flex items-baseline">
-            <span className="mr-2 h-4 w-4">{props.icon}</span>
+          <p className="flex items-center">
+            {props.icon && (
+              <props.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+            )}
             {props.label}
           </p>
         </Button>

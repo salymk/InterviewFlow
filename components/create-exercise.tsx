@@ -92,8 +92,12 @@ export function CreateExercise() {
                       <SelectLabel>Confidence</SelectLabel>
                       {confidence.map((label) => (
                         <SelectItem key={label.value} value={label.value}>
-                          <span className="mr-2 h-4 w-4">{label.icon}</span>
-                          {label.label}
+                          <div className="flex items-center">
+                            {label.icon && (
+                              <label.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                            )}
+                            <span>{label.label}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectGroup>
