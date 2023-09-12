@@ -7,7 +7,10 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
-function ToolTipButton(props, forwardRef) {
+function ToolTipButton(
+  props: any,
+  forwardRef: React.Ref<HTMLButtonElement> | undefined
+) {
   return (
     <TooltipProvider>
       <Tooltip>
