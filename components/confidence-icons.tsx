@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const NoneIcon = (props) => (
+export const NoneIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -15,7 +15,7 @@ export const NoneIcon = (props) => (
   </svg>
 );
 
-export const ForgotIcon = (props) => (
+export const ForgotIcon = (props: any) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -29,7 +29,7 @@ export const ForgotIcon = (props) => (
   </svg>
 );
 
-export const PartiallyRecalledIcon = (props) => (
+export const PartiallyRecalledIcon = (props: any) => (
   <svg
     viewBox="0 0 128 128"
     xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ export const PartiallyRecalledIcon = (props) => (
   </svg>
 );
 
-export const RecalledWithEffortIcon = (props) => (
+export const RecalledWithEffortIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
@@ -146,7 +146,7 @@ export const RecalledWithEffortIcon = (props) => (
   </svg>
 );
 
-export const EasilyRecalledIcon = (props) => (
+export const EasilyRecalledIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"

@@ -13,7 +13,10 @@ import {
 import { ToastAction } from "./ui/toast";
 import { useToast } from "./ui/use-toast";
 
-function ReviewLogConfirmationModal(props, forwardRef) {
+function ReviewLogConfirmationModal(
+  props: any,
+  forwardRef: React.Ref<HTMLButtonElement> | undefined
+) {
   const { toast } = useToast();
   const [open, setOpen] = React.useState(false);
 
