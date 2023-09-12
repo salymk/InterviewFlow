@@ -50,8 +50,9 @@ export const columns: ColumnDef<Task>[] = [
       }
 
       return (
-        <div className="flex w-[100px] items-center">
-          <span className="mr-2 h-4 w-4">{con.icon}</span>
+        <div className="flex w-[160px] items-center">
+          {con.icon && <con.icon className="mr-2 h-4 w-4" />}
+
           <span>{con.label}</span>
         </div>
       );
