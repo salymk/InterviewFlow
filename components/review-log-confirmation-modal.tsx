@@ -46,7 +46,7 @@ function ReviewLogConfirmationModal(
             exercise?
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
+        <DialogFooter className="flex flex-row gap-3 justify-end">
           <Button
             variant="destructive"
             onClick={() => {
