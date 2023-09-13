@@ -7,7 +7,15 @@ import {
   CrossCircledIcon,
   QuestionMarkCircledIcon,
   StopwatchIcon,
-} from "@radix-ui/react-icons"
+} from "@radix-ui/react-icons";
+
+import {
+  NoneIcon,
+  ForgotIcon,
+  PartiallyRecalledIcon,
+  RecalledWithEffortIcon,
+  EasilyRecalledIcon,
+} from "../components/confidence-icons";
 
 export const labels = [
   {
@@ -23,8 +31,8 @@ export const labels = [
     label: "JS",
   },
   {
-    value: "dom manipulation",
-    label: "DOM Manipulation",
+    value: "dom",
+    label: "DOM",
   },
   {
     value: "react components",
@@ -34,36 +42,35 @@ export const labels = [
     value: "react hooks",
     label: "React Hooks",
   },
-  
-]
+];
 
 export const confidence = [
   {
     value: "none",
     label: "None",
-    icon: "🚫",
+    icon: NoneIcon,
   },
   {
     value: "forgot",
     label: "Forgot",
-    icon: "❌",
+    icon: ForgotIcon,
   },
   {
     value: "partially recalled",
     label: "Partially Recalled",
-    icon: "😬",
+    icon: PartiallyRecalledIcon,
   },
   {
     value: "recalled with effort",
     label: "Recalled With Effort",
-    icon: "😃",
+    icon: RecalledWithEffortIcon,
   },
   {
     value: "easily recalled",
     label: "Easily Recalled",
-    icon: "👑",
+    icon: EasilyRecalledIcon,
   },
-]
+];
 
 export const priorities = [
   {
@@ -81,4 +88,4 @@ export const priorities = [
     value: "high",
     icon: ArrowUpIcon,
   },
-]
+];

@@ -40,9 +40,9 @@ export function CreateExercise() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="default" className="mr-4 h-8 px-3">
+        <Button variant="default" className="h-8 px-3">
           <PlusIcon className="mr-2 h-4 w-4" />
-          New Exercise
+          New
         </Button>
       </SheetTrigger>
       <SheetContent className="max-w-sm md:max-w-md p-0">
@@ -53,7 +53,7 @@ export function CreateExercise() {
                 <Input
                   id="title"
                   placeholder="Exercise title"
-                  className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
+                  className="max-w-max ml-2 text-lg md:text-xl border-none shadow-none focus:outline-none"
                 />
               </SheetTitle>
               <Separator className="my-6" />
@@ -84,7 +84,7 @@ export function CreateExercise() {
                   Confidence:
                 </Label>
                 <Select>
-                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                  <SelectTrigger className="col-span-3 ml-4 w-[160px] border-none shadow-none hover:bg-accent">
                     <SelectValue placeholder="Select a confidence level" />
                   </SelectTrigger>
                   <SelectContent>
@@ -92,8 +92,12 @@ export function CreateExercise() {
                       <SelectLabel>Confidence</SelectLabel>
                       {confidence.map((label) => (
                         <SelectItem key={label.value} value={label.value}>
-                          <span className="mr-2 h-4 w-4">{label.icon}</span>
-                          {label.label}
+                          <div className="flex items-center">
+                            {label.icon && (
+                              <label.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                            )}
+                            <span>{label.label}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectGroup>
@@ -154,7 +158,7 @@ export function CreateExercise() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Rate your confidence
               </h2>
               <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
@@ -172,7 +176,7 @@ export function CreateExercise() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Review Log
               </h2>
               {/* <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4"></div> */}

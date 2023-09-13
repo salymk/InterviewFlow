@@ -13,7 +13,10 @@ import {
 import { ToastAction } from "./ui/toast";
 import { useToast } from "./ui/use-toast";
 
-function ReviewLogConfirmationModal(props, forwardRef) {
+function ReviewLogConfirmationModal(
+  props: any,
+  forwardRef: React.Ref<HTMLButtonElement> | undefined
+) {
   const { toast } = useToast();
   const [open, setOpen] = React.useState(false);
 
@@ -27,8 +30,10 @@ function ReviewLogConfirmationModal(props, forwardRef) {
           variant="outline"
           className="w-full flex items-center h-12 text-center"
         >
-          <p className="flex items-baseline">
-            <span className="mr-2 h-4 w-4">{props.icon}</span>
+          <p className="flex items-center">
+            {props.icon && (
+              <props.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+            )}
             {props.label}
           </p>
         </Button>
@@ -58,7 +63,7 @@ function ReviewLogConfirmationModal(props, forwardRef) {
             onClick={() => {
               toast({
                 title: "Scheduled Next Review: Corresponding Node",
-                description: "Friday, September 15, 2023",
+                description: "Friday, Sep 15, 2023",
                 action: (
                   <ToastAction altText="Goto schedule to undo">
                     Undo

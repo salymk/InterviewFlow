@@ -7,7 +7,10 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
-function ToolTipButton(props, forwardRef) {
+function ToolTipButton(
+  props: any,
+  forwardRef: React.Ref<HTMLButtonElement> | undefined
+) {
   return (
     <TooltipProvider>
       <Tooltip>
@@ -19,7 +22,7 @@ function ToolTipButton(props, forwardRef) {
           <Button
             {...props}
             ref={forwardRef}
-            className="h-8 hover:bg-slate-200"
+            className="h-8 text-xs sm:text-sm hover:bg-slate-200"
             variant="outline"
           >
             {props.buttonText}

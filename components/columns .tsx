@@ -28,7 +28,7 @@ export const columns: ColumnDef<Task>[] = [
           <span className="max-w-[500px] truncate font-medium self-center">
             {row.getValue("title")}
           </span>
-          <div className="group/edit invisible group-hover/item:visible">
+          <div className="group/edit md:invisible md:group-hover/item:visible">
             <ExerciseDetails />
           </div>
         </div>
@@ -50,8 +50,9 @@ export const columns: ColumnDef<Task>[] = [
       }
 
       return (
-        <div className="flex w-[100px] items-center">
-          <span className="mr-2 h-4 w-4">{con.icon}</span>
+        <div className="flex w-[160px] items-center">
+          {con.icon && <con.icon className="mr-2 h-4 w-4" />}
+
           <span>{con.label}</span>
         </div>
       );
