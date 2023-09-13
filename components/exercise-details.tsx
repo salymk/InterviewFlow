@@ -77,7 +77,7 @@ export function ExerciseDetails() {
                   Confidence:
                 </Label>
                 <Select defaultValue="none">
-                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                  <SelectTrigger className="col-span-3 ml-4 w-[160px] border-none shadow-none hover:bg-accent">
                     <SelectValue placeholder="Select a confidence level" />
                   </SelectTrigger>
                   <SelectContent>
