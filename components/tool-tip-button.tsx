@@ -22,7 +22,7 @@ function ToolTipButton(
           <Button
             {...props}
             ref={forwardRef}
-            className="h-8 hover:bg-slate-200"
+            className="h-8 text-xs sm:text-sm hover:bg-slate-200"
             variant="outline"
           >
             {props.buttonText}

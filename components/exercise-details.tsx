@@ -46,7 +46,7 @@ export function ExerciseDetails() {
                 <Input
                   id="title"
                   value="Corresponding Node"
-                  className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
+                  className="max-w-max ml-2 text-lg md:text-xl border-none shadow-none focus:outline-none"
                 />
               </SheetTitle>
               <Separator className="my-6" />
@@ -77,7 +77,7 @@ export function ExerciseDetails() {
                   Confidence:
                 </Label>
                 <Select defaultValue="none">
-                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                  <SelectTrigger className="col-span-3 ml-4 w-[160px] border-none shadow-none hover:bg-accent">
                     <SelectValue placeholder="Select a confidence level" />
                   </SelectTrigger>
                   <SelectContent>
@@ -151,7 +151,7 @@ export function ExerciseDetails() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Rate your confidence
               </h2>
               <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
@@ -169,19 +169,14 @@ export function ExerciseDetails() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Review Log
               </h2>
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
                 <ReviewLogModal />
                 <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
               </div>
             </div>
-
             <SheetFooter>
               <SheetClose asChild></SheetClose>
             </SheetFooter>

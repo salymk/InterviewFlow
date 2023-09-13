@@ -31,8 +31,8 @@ export const labels = [
     label: "JS",
   },
   {
-    value: "dom manipulation",
-    label: "DOM Manipulation",
+    value: "dom",
+    label: "DOM",
   },
   {
     value: "react components",
