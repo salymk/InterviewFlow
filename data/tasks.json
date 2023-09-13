@@ -5,8 +5,8 @@
     "confidence": "none",
     "label": "js",
     "priority": "high",
-    "lastReview": "September 5, 2023",
-    "nextReview": "September 10, 2023",
+    "lastReview": "Sep 5, 2023",
+    "nextReview": "Sep 10, 2023",
     "reviewCount": 3
   },
   {
@@ -15,8 +15,8 @@
     "confidence": "forgot",
     "label": "js",
     "priority": "medium",
-    "lastReview": "September 2, 2023",
-    "nextReview": "September 11, 2023",
+    "lastReview": "Sep 2, 2023",
+    "nextReview": "Sep 11, 2023",
     "reviewCount": 1
   },
   {
@@ -25,8 +25,8 @@
     "confidence": "partially recalled",
     "label": "js",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 1
   },
   {
@@ -35,8 +35,8 @@
     "confidence": "recalled with effort",
     "label": "js",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 1
   },
   {
@@ -45,48 +45,48 @@
     "confidence": "easily recalled",
     "label": "js",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 1
   },
   {
     "id": "TASK-8780",
     "title": "Infinite Scroll",
     "confidence": "forgot",
-    "label": "dom manipulation",
+    "label": "dom",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 2
   },
   {
     "id": "TASK-8779",
     "title": "Stopwatch",
     "confidence": "recalled with effort",
-    "label": "dom manipulation",
+    "label": "dom",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 4
   },
   {
     "id": "TASK-8777",
     "title": "Tic Tac Toe",
     "confidence": "none",
-    "label": "dom manipulation",
+    "label": "dom",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 1
   },
   {
     "id": "TASK-8786",
     "title": "Toasts",
     "confidence": "easily recalled",
-    "label": "dom manipulation",
+    "label": "dom",
     "priority": "low",
-    "lastReview": "September 3, 2023",
-    "nextReview": "September 13, 2023",
+    "lastReview": "Sep 3, 2023",
+    "nextReview": "Sep 13, 2023",
     "reviewCount": 1
   }
 ]

@@ -63,7 +63,7 @@ function ReviewLogConfirmationModal(
             onClick={() => {
               toast({
                 title: "Scheduled Next Review: Corresponding Node",
-                description: "Friday, September 15, 2023",
+                description: "Friday, Sep 15, 2023",
                 action: (
                   <ToastAction altText="Goto schedule to undo">
                     Undo
