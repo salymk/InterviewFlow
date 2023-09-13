@@ -46,7 +46,7 @@ export function ExerciseDetails() {
                 <Input
                   id="title"
                   value="Corresponding Node"
-                  className="max-w-max ml-2 text-xl md:text-2xl border-none shadow-none focus:outline-none"
+                  className="max-w-max ml-2 text-lg md:text-xl border-none shadow-none focus:outline-none"
                 />
               </SheetTitle>
               <Separator className="my-6" />
@@ -151,7 +151,7 @@ export function ExerciseDetails() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Rate your confidence
               </h2>
               <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
@@ -169,19 +169,14 @@ export function ExerciseDetails() {
             <Separator className="my-6" />
 
             <div>
-              <h2 className="text-xl font-semibold text-center pb-4 ">
+              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
                 Review Log
               </h2>
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
                 <ReviewLogModal />
                 <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
-                <ReviewLogModal />
               </div>
             </div>
-
             <SheetFooter>
               <SheetClose asChild></SheetClose>
             </SheetFooter>
