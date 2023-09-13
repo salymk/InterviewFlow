@@ -19,11 +19,11 @@ export function ReviewLogModal() {
           variant="outline"
           className="p-2 h-full flex-col items-baseline"
         >
-          <p className="text-lg font-semibold flex items-center">
+          <p className="text-md md:text-lg font-semibold flex items-center">
             <CheckCircledIcon className="h-4 w-4 mr-2 text-green-500" />
             review
           </p>
-          <span className="italic">September 5, 2023</span>
+          <span className="italic text-md md:text-lg">Sep 5, 2023</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
