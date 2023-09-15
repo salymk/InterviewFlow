@@ -19,7 +19,7 @@ export const columns: ColumnDef<Task>[] = [
       const label = labels.find((label) => label.value === row.original.label);
 
       return (
-        <div className="flex space-x-2 ml-2 group/item">
+        <div className="flex space-x-2 ml-2">
           {label && (
             <Badge className="h-5 self-center" variant="outline">
               {label.label}

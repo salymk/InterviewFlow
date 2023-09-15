@@ -97,6 +97,7 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="group/item"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell className="relative" key={cell.id}>
