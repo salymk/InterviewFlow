@@ -72,12 +72,12 @@ export function ExerciseDetails() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="flex items-center gap-4">
                 <Label htmlFor="confidence" className="text-right">
                   Confidence:
                 </Label>
                 <Select defaultValue="none">
-                  <SelectTrigger className="col-span-3 ml-4 w-[160px] border-none shadow-none hover:bg-accent">
+                  <SelectTrigger className="border-none shadow-none hover:bg-accent">
                     <SelectValue placeholder="Select a confidence level" />
                   </SelectTrigger>
                   <SelectContent>
