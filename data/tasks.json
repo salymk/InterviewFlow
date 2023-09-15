@@ -6,7 +6,7 @@
     "label": "js",
     "priority": "high",
     "lastReview": "Sep 5, 2023",
-    "nextReview": "Sep 10, 2023",
+    "nextReview": "in 1 day",
     "reviewCount": 3
   },
   {
@@ -16,7 +16,7 @@
     "label": "js",
     "priority": "medium",
     "lastReview": "Sep 2, 2023",
-    "nextReview": "Sep 11, 2023",
+    "nextReview": "in 9 day",
     "reviewCount": 1
   },
   {
@@ -26,7 +26,7 @@
     "label": "js",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 8 day",
     "reviewCount": 1
   },
   {
@@ -36,7 +36,7 @@
     "label": "js",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 2 day",
     "reviewCount": 1
   },
   {
@@ -46,7 +46,7 @@
     "label": "js",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 4 day",
     "reviewCount": 1
   },
   {
@@ -56,7 +56,7 @@
     "label": "dom",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 10 day",
     "reviewCount": 2
   },
   {
@@ -66,7 +66,7 @@
     "label": "dom",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 7 day",
     "reviewCount": 4
   },
   {
@@ -76,7 +76,7 @@
     "label": "dom",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 1 day",
     "reviewCount": 1
   },
   {
@@ -86,7 +86,7 @@
     "label": "dom",
     "priority": "low",
     "lastReview": "Sep 3, 2023",
-    "nextReview": "Sep 13, 2023",
+    "nextReview": "in 3 day",
     "reviewCount": 1
   }
 ]
