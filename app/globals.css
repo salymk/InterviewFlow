@@ -74,11 +74,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-html,
-body {
-  min-height: 100%;
-}
-body {
-  height: 100vh;
-}
