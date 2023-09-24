@@ -1,13 +1,12 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { Metadata } from "next";
-import Image from "next/image";
 import { z } from "zod";
 
 import { columns } from "../components/columns ";
 import { DataTable } from "../components/data-table";
-import { UserNav } from "../components/user-nav";
 import { taskSchema } from "../data/schema";
+import Dashboard from "@/components/dashboard";
 
 export const metadata: Metadata = {
   title: "InterviewFlow",
@@ -29,21 +28,12 @@ export default async function Home() {
 
   return (
     <>
-      <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
-        <div className="flex items-center justify-between space-y-2">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">InterviewFlow</h2>
-            <p className="text-muted-foreground">
-              Spaced repetition + technical interview prep will help you flow
-              right into your next interview.
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <UserNav />
-          </div>
-        </div>
-        <DataTable data={tasks} columns={columns} />
-      </div>
+      <Dashboard>
+        <section>
+          <h1 className="text-xl font-bold text-slate-950 mb-4">Backlog</h1>
+          <DataTable data={tasks} columns={columns} />
+        </section>
+      </Dashboard>
     </>
   );
 }
