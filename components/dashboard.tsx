@@ -2,26 +2,26 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
-  Bars3Icon,
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+  FolderKanban,
+  GanttChart,
+  CalendarDays,
+  CopyPlus,
+  PieChart,
+  Menu,
+  X,
+  ChevronRight,
+  ChevronLeft,
+} from "lucide-react";
+
 import { UserNav } from "./user-nav";
-import { ChevronRightIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+  { name: "Backlog", href: "#", icon: FolderKanban, current: true },
+  { name: "Sprints", href: "#", icon: GanttChart, current: false },
+  { name: "Calendar", href: "#", icon: CalendarDays, current: false },
+  { name: "Templates", href: "#", icon: CopyPlus, current: false },
+  { name: "Reports", href: "#", icon: PieChart, current: false },
 ];
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
@@ -86,10 +86,7 @@ export default function Dashboard({ children }: { children: any }) {
                         onClick={() => setSidebarOpen(false)}
                       >
                         <span className="sr-only">Close sidebar</span>
-                        <XMarkIcon
-                          className="h-6 w-6 text-white"
-                          aria-hidden="true"
-                        />
+                        <X className="h-6 w-6 text-white" aria-hidden="true" />
                       </button>
                     </div>
                   </Transition.Child>
@@ -190,14 +187,19 @@ export default function Dashboard({ children }: { children: any }) {
               className="rounded-full absolute top-[35px] right-[-35px] transform -translate-x-1/2 hover:bg-slate-950 hover:text-white"
               onClick={() => setExpanded(!expanded)}
             >
-              {expanded ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+              {expanded ? (
+                <ChevronLeft className="h-4 w-4" />
+              ) : (
+                <ChevronRight className="h-4 w-4" />
+              )}
             </Button>
-            <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
-              />
+            <div
+              className={classNames(
+                expanded ? "text-lg" : "text-sm",
+                "flex font-extrabold h-16 shrink-0 items-center"
+              )}
+            >
+              TiFlow
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -257,11 +259,7 @@ export default function Dashboard({ children }: { children: any }) {
                     href="#"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
                   >
-                    <img
-                      className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                    <UserNav />
                     <span className="sr-only">Your profile</span>
 
                     <span
@@ -285,10 +283,10 @@ export default function Dashboard({ children }: { children: any }) {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-            Dashboard
+            Backlog
           </div>
           <UserNav />
         </div>
