@@ -8,7 +8,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -27,22 +26,21 @@ import {
 import { ScrollArea } from "./ui/scroll-area";
 
 import { Separator } from "./ui/separator";
-import ToolTipButton from "./tool-tip-button";
 import { LastReviewDatePicker } from "./last-review-date-picker";
 import { NextReviewDatePicker } from "./next-review-date-picker";
 import { ReviewLogModal } from "./review-log-modal";
 
 import { labels, confidence, priorities } from "../data/data";
 import ReviewLogConfirmationModal from "./review-log-confirmation-modal";
-import { CheckCircledIcon, PlusIcon } from "@radix-ui/react-icons";
+import { Plus } from "lucide-react";
 
 export function CreateExercise() {
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="default" className="h-8 px-3">
-          <PlusIcon className="mr-2 h-4 w-4" />
-          New
+          <Plus className="mr-2 h-4 w-4" />
+          Create exercise
         </Button>
       </SheetTrigger>
       <SheetContent className="max-w-sm md:max-w-md p-0">
