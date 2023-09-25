@@ -5,6 +5,7 @@ import {
   DoubleArrowRightIcon,
 } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
+import { CreateExercise } from "./create-exercise";
 
 import { Button } from "./ui/button";
 import {
@@ -23,10 +24,11 @@ export function DataTablePagination<TData>({
   table,
 }: DataTablePaginationProps<TData>) {
   return (
-    <div className="sm:flex sm:items-center sm:justify-between sm:px-2">
+    <div className="flex flex-col gap-4 sm:flex sm:flex-row sm:items-center sm:justify-between sm:px-2">
       <div className="flex-1 text-sm text-muted-foreground">
         {/* {table.getFilteredSelectedRowModel().rows.length} of{" "}
         {table.getFilteredRowModel().rows.length} row(s) selected. */}
+        <CreateExercise />
       </div>
       <div className="flex justify-between  sm:items-center space-x-6 lg:space-x-8">
         <div className="flex flex-col items-baseline gap-3 sm:flex-row sm:items-center space-x-2">

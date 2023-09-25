@@ -1,6 +1,6 @@
 "use client";
 
-import { Cross2Icon, PlusIcon } from "@radix-ui/react-icons";
+import { Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 
 import { Button } from "./ui/button";
@@ -9,13 +9,16 @@ import { DataTableViewOptions } from "./data-table-view-options";
 
 import { priorities, confidence } from "../data/data";
 import { DataTableFacetedFilter } from "./data-table-faceted-filter";
-import { CreateExercise } from "./create-exercise";
+import { Plus } from "lucide-react";
+import { FilterPopover } from "./filter-popover";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
+  actionButton?: React.ReactNode;
 }
 
 export function DataTableToolbar<TData>({
+  actionButton,
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
@@ -35,12 +38,40 @@ export function DataTableToolbar<TData>({
               }
               className="h-8 w-full sm:w-[250px]"
             />
-            <CreateExercise />
+
+            <FilterPopover>
+              <div className="flex flex-col gap-4 flex-wrap">
+                {table.getColumn("confidence") && (
+                  <DataTableFacetedFilter
+                    column={table.getColumn("confidence")}
+                    title="Confidence"
+                    options={confidence}
+                  />
+                )}
+                {table.getColumn("priority") && (
+                  <DataTableFacetedFilter
+                    column={table.getColumn("priority")}
+                    title="Priority"
+                    options={priorities}
+                  />
+                )}
+                {isFiltered && (
+                  <Button
+                    variant="ghost"
+                    onClick={() => table.resetColumnFilters()}
+                    className="h-8 px-2 lg:px-3"
+                  >
+                    Reset
+                    <Cross2Icon className="ml-2 h-4 w-4" />
+                  </Button>
+                )}
+              </div>
+            </FilterPopover>
           </div>
         </div>
 
         <div className="flex justify-between">
-          <div className="flex flex-row gap-3 flex-wrap">
+          <div className="hidden md:relative md:flex flex-row gap-3 flex-wrap">
             {table.getColumn("confidence") && (
               <DataTableFacetedFilter
                 column={table.getColumn("confidence")}
@@ -66,7 +97,15 @@ export function DataTableToolbar<TData>({
               </Button>
             )}
           </div>
-          <DataTableViewOptions table={table} />
+          <div className="flex gap-4">
+            <DataTableViewOptions table={table} />
+
+            {/* <Button variant="default" className="h-8 px-3">
+              <Plus className="mr-2 h-4 w-4" />
+              Create sprint
+            </Button> */}
+            {actionButton}
+          </div>
         </div>
       </div>
     </div>
