@@ -14,9 +14,11 @@ import { FilterPopover } from "./filter-popover";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
+  actionButton?: React.ReactNode;
 }
 
 export function DataTableToolbar<TData>({
+  actionButton,
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
@@ -98,10 +100,11 @@ export function DataTableToolbar<TData>({
           <div className="flex gap-4">
             <DataTableViewOptions table={table} />
 
-            <Button variant="default" className="h-8 px-3">
+            {/* <Button variant="default" className="h-8 px-3">
               <Plus className="mr-2 h-4 w-4" />
               Create sprint
-            </Button>
+            </Button> */}
+            {actionButton}
           </div>
         </div>
       </div>
