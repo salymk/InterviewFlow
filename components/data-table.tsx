@@ -28,6 +28,8 @@ import {
 import { DataTablePagination } from "../components/data-table-pagination";
 import { DataTableToolbar } from "../components/data-table-toolbar";
 import { Toaster } from "./ui/toaster";
+import { Button } from "./ui/button";
+import { Plus } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -70,7 +72,15 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar
+        table={table}
+        actionButton={
+          <Button variant="default" className="h-8 px-3">
+            <Plus className="mr-2 h-4 w-4" />
+            Create sprint
+          </Button>
+        }
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
