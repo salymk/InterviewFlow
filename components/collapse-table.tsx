@@ -10,7 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-export function CollapseTable({ text, children }) {
+export function CollapseTable({ text, children }: any) {
   const [isOpen, setIsOpen] = React.useState(true);
 
   return (
