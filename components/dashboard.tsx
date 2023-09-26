@@ -1,6 +1,9 @@
 "use client";
 import { Fragment, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Dialog, Transition } from "@headlessui/react";
+
 import {
   FolderKanban,
   GanttChart,
@@ -17,16 +20,11 @@ import { UserNav } from "./user-nav";
 import { Button } from "./ui/button";
 
 const navigation = [
-  { name: "Backlog", href: "#", icon: FolderKanban, current: true },
-  { name: "Sprints", href: "#", icon: GanttChart, current: false },
-  { name: "Calendar", href: "#", icon: CalendarDays, current: false },
-  { name: "Templates", href: "#", icon: CopyPlus, current: false },
-  { name: "Reports", href: "#", icon: PieChart, current: false },
-];
-const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+  { name: "Backlog", href: "/", icon: FolderKanban, current: true },
+  { name: "Sprints", href: "/sprints", icon: GanttChart, current: false },
+  { name: "Calendar", href: "/calendar", icon: CalendarDays, current: false },
+  { name: "Templates", href: "/templates", icon: CopyPlus, current: false },
+  { name: "Reports", href: "/reports", icon: PieChart, current: false },
 ];
 
 // A utility for conditionally applying class names based on certain conditions or states
@@ -36,7 +34,8 @@ function classNames(...classes: any[]) {
 
 export default function Dashboard({ children }: { children: any }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -92,23 +91,19 @@ export default function Dashboard({ children }: { children: any }) {
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
-                    <div className="flex h-16 shrink-0 items-center">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Your Company"
-                      />
-                    </div>
+                    <h2 className="text-lg flex font-extrabold h-16 shrink-0 items-center">
+                      TiFlow
+                    </h2>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
                           <ul role="list" className="-mx-2 space-y-1">
                             {navigation.map((item) => (
                               <li key={item.name}>
-                                <a
+                                <Link
                                   href={item.href}
                                   className={classNames(
-                                    item.current
+                                    pathname === item.href
                                       ? "bg-slate-950 text-slate-100"
                                       : "text-slate-950 hover:text-slate-100 hover:bg-slate-950",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -116,7 +111,7 @@ export default function Dashboard({ children }: { children: any }) {
                                 >
                                   <item.icon
                                     className={classNames(
-                                      item.current
+                                      pathname === item.href
                                         ? "text-slate-100"
                                         : "text-slate-950 group-hover:text-slate-100",
                                       "h-6 w-6 shrink-0"
@@ -124,7 +119,7 @@ export default function Dashboard({ children }: { children: any }) {
                                     aria-hidden="true"
                                   />
                                   {item.name}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -161,25 +156,25 @@ export default function Dashboard({ children }: { children: any }) {
                 <ChevronRight className="h-4 w-4" />
               )}
             </Button>
-            <div
+            <h2
               className={classNames(
                 expanded ? "text-lg" : "text-sm",
                 "flex font-extrabold h-16 shrink-0 items-center"
               )}
             >
               TiFlow
-            </div>
+            </h2>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                            item.current
+                            pathname === item.href
                               ? "bg-slate-950 text-slate-100"
                               : "text-slate-950 hover:text-slate-100 hover:bg-slate-950",
                             expanded ? "ml-0" : "ml-1"
@@ -187,7 +182,7 @@ export default function Dashboard({ children }: { children: any }) {
                         >
                           <item.icon
                             className={classNames(
-                              item.current
+                              pathname === item.href
                                 ? "text-slate-100"
                                 : "text-slate-950 group-hover:text-slate-100",
                               "h-6 w-6 shrink-0"
@@ -214,17 +209,14 @@ export default function Dashboard({ children }: { children: any }) {
                               {item.name}
                             </div>
                           )}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </li>
 
                 <li className="-mx-6 mt-auto">
-                  <a
-                    href="#"
-                    className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
-                  >
+                  <div className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
                     <UserNav />
                     <span className="sr-only">Your profile</span>
 
@@ -235,7 +227,7 @@ export default function Dashboard({ children }: { children: any }) {
                     >
                       Salym
                     </span>
-                  </a>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -252,7 +244,11 @@ export default function Dashboard({ children }: { children: any }) {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-            Backlog
+            {pathname === "/" && "Backlog"}
+            {pathname === "/sprints" && "Sprints"}
+            {pathname === "/calendar" && "Calendar"}
+            {pathname === "/templates" && "Templates"}
+            {pathname === "/reports" && "Reports"}
           </div>
           <UserNav />
         </div>
