@@ -6,7 +6,6 @@ import { z } from "zod";
 import { columns } from "../components/columns ";
 import { DataTable } from "../components/data-table";
 import { taskSchema } from "../data/schema";
-import Dashboard from "@/components/dashboard";
 import { Separator } from "@/components/ui/separator";
 import { SprintTable } from "@/components/sprint-table";
 
@@ -43,19 +42,17 @@ export default async function Home() {
 
   return (
     <>
-      <Dashboard>
-        <section>
-          <CollapseTable text="Meta Interview Sprint">
-            <SprintTable data={sprintTasks} columns={columns} />
-          </CollapseTable>
-        </section>
-        <Separator className="my-16" />
-        <section>
-          <CollapseTable text="Backlog">
-            <DataTable data={tasks} columns={columns} />
-          </CollapseTable>
-        </section>
-      </Dashboard>
+      <section>
+        <CollapseTable text="Meta Interview Sprint">
+          <SprintTable data={sprintTasks} columns={columns} />
+        </CollapseTable>
+      </section>
+      <Separator className="my-16" />
+      <section>
+        <CollapseTable text="Backlog">
+          <DataTable data={tasks} columns={columns} />
+        </CollapseTable>
+      </section>
     </>
   );
 }
