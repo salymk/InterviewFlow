@@ -25,7 +25,7 @@ export function CollapseTable({ text, children }: any) {
         </CollapsibleTrigger>
       </div>
 
-      <CollapsibleContent className="CollapsibleContent">
+      <CollapsibleContent className="CollapsibleContent p-1">
         {children}
       </CollapsibleContent>
     </Collapsible>
