@@ -2,11 +2,6 @@ import {
   ArrowDownIcon,
   ArrowRightIcon,
   ArrowUpIcon,
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
 } from "@radix-ui/react-icons";
 
 import {
@@ -87,5 +82,20 @@ export const priorities = [
     label: "High",
     value: "high",
     icon: ArrowUpIcon,
+  },
+];
+
+export const difficulty = [
+  {
+    label: "Easy",
+    value: "easy",
+  },
+  {
+    label: "Medium",
+    value: "medium",
+  },
+  {
+    label: "Hard",
+    value: "hard",
   },
 ];
