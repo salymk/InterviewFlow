@@ -18,6 +18,7 @@ import {
 
 import { UserNav } from "./user-nav";
 import { Button } from "./ui/button";
+import { classNames } from "@/lib/utils";
 
 const navigation = [
   { name: "Backlog", href: "/", icon: FolderKanban, current: true },
@@ -26,11 +27,6 @@ const navigation = [
   { name: "Templates", href: "/templates", icon: CopyPlus, current: false },
   { name: "Reports", href: "/reports", icon: PieChart, current: false },
 ];
-
-// A utility for conditionally applying class names based on certain conditions or states
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Dashboard({ children }: { children: any }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
