@@ -30,9 +30,10 @@ import { LastReviewDatePicker } from "./last-review-date-picker";
 import { NextReviewDatePicker } from "./next-review-date-picker";
 import { ReviewLogModal } from "./review-log-modal";
 
-import { labels, confidence, priorities } from "../data/data";
+import { labels, confidence, priorities, difficulty } from "../data/data";
 import ReviewLogConfirmationModal from "./review-log-confirmation-modal";
 import { Plus } from "lucide-react";
+import { classNames } from "@/lib/utils";
 
 export function CreateExercise() {
   return (
@@ -95,6 +96,37 @@ export function CreateExercise() {
                               <label.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                             )}
                             <span>{label.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="difficulty" className="text-right">
+                  Difficulty:
+                </Label>
+                <Select>
+                  <SelectTrigger className="col-span-3 border-none shadow-none hover:bg-accent">
+                    <SelectValue placeholder="Select difficulty" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Difficulties</SelectLabel>
+                      {difficulty.map((diff) => (
+                        <SelectItem key={diff.value} value={diff.value}>
+                          <div className="flex items-center">
+                            <span
+                              className={classNames(
+                                diff.value === "easy" && "text-green-400",
+                                diff.value === "medium" && "text-amber-400",
+                                diff.value === "hard" && "text-red-400"
+                              )}
+                            >
+                              {diff.label}
+                            </span>
                           </div>
                         </SelectItem>
                       ))}
