@@ -3,11 +3,12 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Badge } from "./ui/badge";
-import { labels, priorities, confidence } from "../data/data";
+import { labels, priorities, confidence, difficulty } from "../data/data";
 import { Task } from "../data/schema";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 import { ExerciseDetails } from "./exercise-details";
+import { classNames } from "@/lib/utils";
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -31,6 +32,36 @@ export const columns: ColumnDef<Task>[] = [
           <div className="group/edit md:invisible md:group-hover/item:visible">
             <ExerciseDetails />
           </div>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "difficulty",
+    header: ({ column }) => (
+      <DataTableColumnHeader className="" column={column} title="Difficulty" />
+    ),
+    cell: ({ row }) => {
+      const diff = difficulty.find(
+        (dif) => dif.value === row.getValue("difficulty")
+      );
+
+      if (!diff) {
+        return null;
+      }
+
+      return (
+        <div>
+          <span
+            className={classNames(
+              diff.value === "easy" && "text-green-400",
+              diff.value === "medium" && "text-amber-400",
+              diff.value === "hard" && "text-red-400",
+              "max-w-[500px] truncate font-medium self-center"
+            )}
+          >
+            {diff.label}
+          </span>
         </div>
       );
     },
