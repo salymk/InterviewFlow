@@ -14,7 +14,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "title",
     header: ({ column }) => (
-      <DataTableColumnHeader className="ml-4" column={column} title="Title" />
+      <DataTableColumnHeader className="ml-4" column={column} title="Problem" />
     ),
     cell: ({ row }) => {
       const label = labels.find((label) => label.value === row.original.label);
