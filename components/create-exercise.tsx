@@ -187,31 +187,9 @@ export function CreateExercise() {
 
             <Separator className="my-6" />
 
-            <div>
-              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
-                Rate your confidence
-              </h2>
-              <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-                {confidence.map((label) => (
-                  <li key={label.value} className="flex items-center">
-                    <ReviewLogConfirmationModal
-                      label={label.label}
-                      icon={label.icon}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Separator className="my-6" />
-
-            <div>
-              <h2 className="text-lg md:text-xl font-semibold text-center pb-4 ">
-                Review Log
-              </h2>
-              {/* <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4"></div> */}
-              <p className="text-center">No reviews logged.</p>
-            </div>
+            <Button variant="default" className="w-full">
+              Save
+            </Button>
 
             <SheetFooter>
               <SheetClose asChild></SheetClose>
