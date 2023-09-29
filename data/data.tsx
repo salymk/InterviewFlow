@@ -10,6 +10,7 @@ import {
   PartiallyRecalledIcon,
   RecalledWithEffortIcon,
   EasilyRecalledIcon,
+  MasteredIcon,
 } from "../components/confidence-icons";
 
 export const labels = [
@@ -64,6 +65,11 @@ export const confidence = [
     value: "easily recalled",
     label: "Easily Recalled",
     icon: EasilyRecalledIcon,
+  },
+  {
+    value: "mastered",
+    label: "Mastered",
+    icon: MasteredIcon,
   },
 ];
 
