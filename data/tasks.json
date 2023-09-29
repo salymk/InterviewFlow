@@ -79,7 +79,7 @@
   {
     "id": "TASK-8777",
     "title": "Tic Tac Toe",
-    "confidence": "none",
+    "confidence": "mastered",
     "label": "dom",
     "difficulty": "hard",
     "priority": "low",
