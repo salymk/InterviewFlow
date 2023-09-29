@@ -187,9 +187,11 @@ export function CreateExercise() {
 
             <Separator className="my-6" />
 
-            <Button variant="default" className="w-full">
-              Save
-            </Button>
+            <div className="flex justify-end">
+              <Button variant="default" className="w-full sm:w-min">
+                Save
+              </Button>
+            </div>
 
             <SheetFooter>
               <SheetClose asChild></SheetClose>
