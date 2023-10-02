@@ -5,6 +5,7 @@ import { z } from "zod";
 export const taskSchema = z.object({
   id: z.string(),
   title: z.string(),
+  link: z.string(),
   difficulty: z.string(),
   confidence: z.string(),
   label: z.string(),
