@@ -17,6 +17,9 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader className="ml-4" column={column} title="Problem" />
     ),
     cell: ({ row }) => {
+      const diff = difficulty.find(
+        (dif) => dif.value === row.getValue("difficulty")
+      );
       const label = labels.find((label) => label.value === row.original.label);
 
       return (
@@ -26,9 +29,20 @@ export const columns: ColumnDef<Task>[] = [
               {label.label}
             </Badge>
           )}
-          <span className="max-w-[500px] truncate font-medium self-center">
-            {row.getValue("title")}
-          </span>
+          <div className="max-w-[500px] truncate font-medium self-center">
+            <a
+              target="_blank"
+              href={row.original.link}
+              className={classNames(
+                diff?.value === "easy" && "hover:text-green-400",
+                diff?.value === "medium" && "hover:text-amber-400",
+                diff?.value === "hard" && "hover:text-red-400",
+                "max-w-[500px] transition-colors ease-in-out duration-200 truncate font-medium self-center"
+              )}
+            >
+              {row.getValue("title")}
+            </a>
+          </div>
           <div className="group/edit md:invisible md:group-hover/item:visible">
             <ExerciseDetails />
           </div>
